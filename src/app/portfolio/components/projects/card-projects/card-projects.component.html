@@ -1,6 +1,10 @@
 <mat-card class="animate__animated animate__backInUp">
   <mat-card-header>
-    <mat-card-title>{{ project.id }}----{{ project.nombre }}</mat-card-title>
+    <mat-card-title
+      >{{ project.id }}-
+
+      {{ project.nombre }}</mat-card-title
+    >
   </mat-card-header>
 
   <img mat-card-image src="{{ project.picture }}" alt="" />
@@ -22,4 +26,7 @@
       DELETE
     </button>
   </mat-card-actions>
+  <mat-card-footer>
+    <mat-progress-bar mode="indeterminate" color="accent"></mat-progress-bar>
+  </mat-card-footer>
 </mat-card>

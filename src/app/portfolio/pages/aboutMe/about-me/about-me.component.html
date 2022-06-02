@@ -1,14 +1,10 @@
-<div *ngFor="let item of persona">
+<div *ngFor="let item of person">
   <div fxFlex="100">
     <mat-card fxLayout="fullscreen">
-      <span class="aboutMe animate__animated animate__backInUp"
-        >Lorem ipsum dolor, sit amet consectetur adipisicing elit. Asperiores
-        beatae delectus id in voluptates nisi maxime. Iste dolore vel
-        reiciendis, dignissimos saepe similique tenetur at optio animi
-        voluptates unde accusamus. Lorem, ipsum dolor sit amet consectetur
-        adipisicing elit. Repudiandae a eveniet facere alias placeat sed velit
-        nisi veniam optio, debitis nostrum doloremque distinctio reiciendis
-        porro eum magni, enim incidunt dicta? {{ item.apellido }}</span
+      <span class="aboutMe animate__animated animate__backInUp">
+        Hi My Name {{ item.nombre }} {{ item.apellido }}
+        <br />
+        {{ item.acercaDeMi }}</span
       >
       <img mat-card-image src="assets/fondo.avif" alt="" />
     </mat-card>

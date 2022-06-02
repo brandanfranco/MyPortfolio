@@ -13,6 +13,9 @@ import { CardProjectsComponent } from './components/projects/card-projects/card-
 import { ImagesPipe } from './pipes/imagesPipe/images.pipe';
 import { AboutMeComponent } from './pages/aboutMe/about-me/about-me.component';
 import { FormsModule } from '@angular/forms';
+import { CardExperienceComponent } from './components/experiences/card-experience/card-experience.component';
+import { CardEducationComponent } from './components/education/card-education/card-education.component';
+import { CardSkillComponent } from './components/skill/card-skill/card-skill.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +27,9 @@ import { FormsModule } from '@angular/forms';
     CardProjectsComponent,
     ImagesPipe,
     AboutMeComponent,
+    CardExperienceComponent,
+    CardEducationComponent,
+    CardSkillComponent,
   ],
   imports: [
     CommonModule,

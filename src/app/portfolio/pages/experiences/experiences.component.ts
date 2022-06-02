@@ -10,6 +10,7 @@ export class ExperiencesComponent implements OnInit {
   experiences: any = [];
 
   newExperience: any = {
+    id: '',
     empresa: '',
     posicion: '',
     desde: '',
@@ -23,5 +24,17 @@ export class ExperiencesComponent implements OnInit {
     this.services
       .getInfoExperience()
       .subscribe((resp) => (this.experiences = resp));
+  }
+
+  saveExperience() {
+    if (this.newExperience.id) {
+      this.services
+        .updateExperience(this.newExperience)
+        .subscribe((resp) => location.reload());
+    } else {
+      this.services
+        .postExperience(this.newExperience)
+        .subscribe((resp) => location.reload());
+    }
   }
 }

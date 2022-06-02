@@ -1,4 +1,4 @@
-<h1>Projects</h1>
+<h1 fxLayoutAlign="center">Resume</h1>
 <mat-divider></mat-divider>
 <br />
 
@@ -8,30 +8,70 @@
   fxLayoutGap="30px"
   fxLayoutAlign="center"
 >
-  <div fxFlex="30" fxFlex.sm="25" *ngFor="let experience of experiences">
-    <mat-card class="example-card">
-      <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-      <mat-card-title>Shiba Inu</mat-card-title>
-      <mat-card-content>
-        <p>This card has divider and indeterminate progress as footer</p>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae
-          tenetur optio laborum est ab animi sequi illo, quam cupiditate aliquam
-          dolorem reiciendis excepturi voluptatum nostrum, id, voluptatem
-          ducimus unde nobis
-        </p>
-      </mat-card-content>
-      <mat-divider inset></mat-divider>
-      <mat-card-actions>
-        <button mat-button>LIKE</button>
-        <button mat-button>SHARE</button>
-      </mat-card-actions>
-      <mat-card-footer>
-        <mat-progress-bar
-          mode="indeterminate"
-          color="accent"
-        ></mat-progress-bar>
-      </mat-card-footer>
-    </mat-card>
+  <div fxFlex="30" fxFlex.sm="85" *ngFor="let experience of experiences">
+    <app-card-experience [experience]="experience"></app-card-experience>
+  </div>
+</div>
+
+<div class="form" fxlayout="row" fxLayoutGap="80" fxLayoutAlign="center">
+  <div fxFlex="50" fxLayout="column" fxLayoutAlign="center">
+    <mat-form-field fxFlex="100">
+      <mat-label> Experience number to update</mat-label>
+      <input [(ngModel)]="newExperience.id" matInput type="number" />
+    </mat-form-field>
+
+    <mat-form-field fxFlex="100">
+      <mat-label>Company</mat-label>
+      <input
+        [(ngModel)]="newExperience.empresa"
+        matInput
+        type="text"
+        required
+      />
+    </mat-form-field>
+
+    <mat-form-field fxFlex="100">
+      <mat-label>Job Position</mat-label>
+      <input
+        [(ngModel)]="newExperience.posicion"
+        matInput
+        type="text"
+        required
+      />
+    </mat-form-field>
+
+    <mat-form-field fxFlex="100">
+      <mat-label>Description</mat-label>
+      <input
+        [(ngModel)]="newExperience.descripcion"
+        matInput
+        type="text"
+        required
+      />
+    </mat-form-field>
+
+    <mat-form-field fxFlex="100">
+      <mat-label>From</mat-label>
+      <input [(ngModel)]="newExperience.desde" matInput type="text" required />
+    </mat-form-field>
+
+    <mat-form-field fxFlex="100">
+      <mat-label>Until</mat-label>
+      <input [(ngModel)]="newExperience.hasta" matInput type="text" required />
+    </mat-form-field>
+
+    <br />
+
+    <div fxLayoutGap="20">
+      <button mat-raised-button (click)="saveExperience()">
+        <mat-icon>edit</mat-icon>
+        Save Experience
+      </button>
+
+      <button mat-raised-button (click)="saveExperience()">
+        <mat-icon></mat-icon>
+        Update Experience
+      </button>
+    </div>
   </div>
 </div>

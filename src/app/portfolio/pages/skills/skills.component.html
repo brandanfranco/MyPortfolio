@@ -1,1 +1,47 @@
-<p>skills works!</p>
+<h1 fxLayoutAlign="center">Skills</h1>
+<mat-divider></mat-divider>
+<br />
+
+<div
+  fxLayout="row wrap"
+  fxLayout.xs="column"
+  fxLayoutGap="30px"
+  fxLayoutAlign="center"
+>
+  <div fxFlex="15" fxFlex.sm="25" *ngFor="let skill of skills">
+    <app-card-skill [skill]="skill"></app-card-skill>
+  </div>
+</div>
+
+<div class="form" fxlayout="row" fxLayoutGap="80" fxLayoutAlign="center">
+  <div fxFlex="50" fxLayout="column" fxLayoutAlign="center">
+    <mat-form-field fxFlex="100">
+      <mat-label> Skill number to update</mat-label>
+      <input [(ngModel)]="newSkill.id" matInput type="number" />
+    </mat-form-field>
+
+    <mat-form-field fxFlex="100">
+      <mat-label>Name</mat-label>
+      <input [(ngModel)]="newSkill.nombre" matInput type="text" required />
+    </mat-form-field>
+
+    <mat-form-field fxFlex="100">
+      <mat-label>Image</mat-label>
+      <input [(ngModel)]="newSkill.imagen" matInput type="text" required />
+    </mat-form-field>
+
+    <br />
+
+    <div fxLayoutGap="20">
+      <button mat-raised-button (click)="saveSkill()">
+        <mat-icon>edit</mat-icon>
+        Save Skill
+      </button>
+
+      <button mat-raised-button (click)="saveSkill()">
+        <mat-icon></mat-icon>
+        Update Skill
+      </button>
+    </div>
+  </div>
+</div>

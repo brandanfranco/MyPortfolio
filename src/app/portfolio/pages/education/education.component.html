@@ -1,1 +1,69 @@
-<p>education works!</p>
+<h1 fxLayoutAlign="center">Educations</h1>
+<mat-divider></mat-divider>
+<br />
+
+<div
+  fxLayout="row wrap"
+  fxLayout.xs="column"
+  fxLayoutGap="30px"
+  fxLayoutAlign="center"
+>
+  <div fxFlex="30" fxFlex.sm="85" *ngFor="let education of educations">
+    <app-card-education [education]="education"></app-card-education>
+  </div>
+</div>
+<br />
+<br /><br />
+
+<div class="form" fxlayout="row" fxLayoutGap="80" fxLayoutAlign="center">
+  <div fxFlex="50" fxLayout="column" fxLayoutAlign="center">
+    <mat-form-field fxFlex="100">
+      <mat-label> Education number only required to update</mat-label>
+      <input [(ngModel)]="newEducation.id" matInput type="number" />
+    </mat-form-field>
+
+    <mat-form-field fxFlex="100">
+      <mat-label>Certification</mat-label>
+      <input
+        [(ngModel)]="newEducation.certificacion"
+        matInput
+        type="text"
+        required
+      />
+    </mat-form-field>
+
+    <mat-form-field fxFlex="100">
+      <mat-label>Place</mat-label>
+      <input
+        [(ngModel)]="newEducation.instituto"
+        matInput
+        type="text"
+        required
+      />
+    </mat-form-field>
+
+    <mat-form-field fxFlex="100">
+      <mat-label>Duration</mat-label>
+      <input
+        [(ngModel)]="newEducation.duracion"
+        matInput
+        type="text"
+        required
+      />
+    </mat-form-field>
+
+    <br />
+
+    <div fxLayoutGap="20">
+      <button mat-raised-button (click)="saveEducation()">
+        <mat-icon>edit</mat-icon>
+        Save Education
+      </button>
+
+      <button mat-raised-button (click)="saveEducation()">
+        <mat-icon>Update</mat-icon>
+        Update Education
+      </button>
+    </div>
+  </div>
+</div>
