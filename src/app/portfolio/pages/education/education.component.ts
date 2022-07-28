@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PortfolioService } from '../../services/portfolio.service';
+import { TokenService } from '../../../auth/services/token.service';
 
 @Component({
   selector: 'app-education',
@@ -9,6 +10,9 @@ import { PortfolioService } from '../../services/portfolio.service';
 export class EducationComponent implements OnInit {
   educations: any = [];
 
+  rol: any;
+  isAdmin: any;
+
   newEducation: any = {
     id: '',
     certificacion: '',
@@ -16,11 +20,20 @@ export class EducationComponent implements OnInit {
     duracion: '',
   };
 
-  constructor(private services: PortfolioService) {}
+  constructor(
+    private services: PortfolioService,
+    private tokenService: TokenService
+  ) {}
 
   ngOnInit(): void {
     this.services.getInfoEducations().subscribe((resp: any) => {
       this.educations = resp;
+    });
+    this.rol = this.tokenService.getAuthorities();
+    this.rol.forEach((role: any) => {
+      if (role === 'ROLE_ADMIN') {
+        this.isAdmin = true;
+      }
     });
   }
 

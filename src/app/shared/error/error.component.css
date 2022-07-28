@@ -1,0 +1,35 @@
+h1 {
+  display: block;
+  font-family: monospace;
+  white-space: nowrap;
+  border-right: 4px solid;
+  width: 25ch;
+  color: white;
+
+  animation: typing 4s steps(25), blink 0.5s infinite step-end alternate;
+  overflow: hidden;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+}
+
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}
+
+.button {
+  margin-right: 20px;
+}
+
+mat-grid-tile-header {
+  align-items: center;
+}
+
+mat-grid-list {
+  background-color: black;
+}

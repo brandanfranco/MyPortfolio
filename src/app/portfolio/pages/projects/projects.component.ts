@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { PortfolioService } from '../../services/portfolio.service';
+import { TokenService } from '../../../auth/services/token.service';
 
 @Component({
   selector: 'app-projects',
@@ -8,8 +9,14 @@ import { PortfolioService } from '../../services/portfolio.service';
   styleUrls: ['./projects.component.css'],
 })
 export class ProjectsComponent implements OnInit {
+  rol: any;
+  isAdmin!: boolean;
+
   projects: any = [];
-  constructor(private services: PortfolioService) {}
+  constructor(
+    private services: PortfolioService,
+    private tokenService: TokenService
+  ) {}
 
   nuevoProject: any = {
     id: '',
@@ -23,6 +30,13 @@ export class ProjectsComponent implements OnInit {
     this.services
       .getInfoProyect()
       .subscribe((projects) => (this.projects = projects));
+
+    this.rol = this.tokenService.getAuthorities();
+    this.rol.forEach((role: any) => {
+      if (role === 'ROLE_ADMIN') {
+        this.isAdmin = true;
+      }
+    });
   }
 
   saveProject() {

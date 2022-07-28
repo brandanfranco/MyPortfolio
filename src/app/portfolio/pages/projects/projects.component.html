@@ -8,61 +8,99 @@
   fxLayoutGap="30px"
   fxLayoutAlign="center"
 >
-  <div fxFlex="30" fxFlex.sm="25" *ngFor="let project of projects">
+  <div
+    fxFlex="30"
+    fxFlex.sm="75"
+    fxLayoutGap="10px"
+    *ngFor="let project of projects"
+  >
     <app-card-projects [project]="project"></app-card-projects>
   </div>
 </div>
 <br />
 
-<div fxlayout="row" fxLayoutGap="80" fxLayoutAlign="center">
-  <div fxFlex="50" fxLayout="column" fxLayoutAlign="center">
-    <mat-form-field fxFlex="100">
-      <mat-label>Number</mat-label>
-      <input [(ngModel)]="nuevoProject.id" matInput type="number" />
-    </mat-form-field>
+<div *ngIf="!isAdmin">Ingrese modo administrador para mas opciones</div>
 
-    <mat-form-field fxFlex="100">
-      <mat-label>Name</mat-label>
-      <input [(ngModel)]="nuevoProject.nombre" matInput type="text" required />
-    </mat-form-field>
+<div *ngIf="isAdmin">
+  <form #miFormulario="ngForm">
+    <div fxlayout="row" fxLayoutGap="80" fxLayoutAlign="center">
+      <div fxFlex="50" fxLayout="column" fxLayoutAlign="center">
+        <mat-form-field fxFlex="100">
+          <mat-label>Number</mat-label>
+          <input
+            [(ngModel)]="nuevoProject.id"
+            matInput
+            type="number"
+            name="id"
+          />
+        </mat-form-field>
 
-    <mat-form-field fxFlex="100">
-      <mat-label>Description</mat-label>
-      <input
-        [(ngModel)]="nuevoProject.descripcion"
-        matInput
-        type="text"
-        required
-      />
-    </mat-form-field>
+        <mat-form-field fxFlex="100">
+          <mat-label>Name</mat-label>
+          <input
+            [(ngModel)]="nuevoProject.nombre"
+            name="nombre"
+            matInput
+            type="text"
+            required
+          />
+        </mat-form-field>
 
-    <mat-form-field fxFlex="100">
-      <mat-label>Url</mat-label>
-      <input [(ngModel)]="nuevoProject.url" matInput type="text" required />
-    </mat-form-field>
+        <mat-form-field fxFlex="100">
+          <mat-label>Description</mat-label>
+          <input
+            [(ngModel)]="nuevoProject.descripcion"
+            matInput
+            type="text"
+            required
+            name="description"
+          />
+        </mat-form-field>
 
-    <mat-form-field fxFlex="100">
-      <mat-label>Technologies used</mat-label>
-      <input
-        [(ngModel)]="nuevoProject.tecnologias"
-        matInput
-        type="text"
-        required
-      />
-    </mat-form-field>
+        <mat-form-field fxFlex="100">
+          <mat-label>Url</mat-label>
+          <input
+            [(ngModel)]="nuevoProject.url"
+            matInput
+            type="text"
+            required
+            name="url"
+          />
+        </mat-form-field>
 
-    <br />
+        <mat-form-field fxFlex="100">
+          <mat-label>Technologies used</mat-label>
+          <input
+            [(ngModel)]="nuevoProject.tecnologias"
+            matInput
+            type="text"
+            required
+            name="technologies"
+          />
+        </mat-form-field>
 
-    <div fxLayoutGap="20">
-      <button mat-raised-button (click)="saveProject()">
-        <mat-icon>edit</mat-icon>
-        Save
-      </button>
+        <br />
 
-      <button mat-raised-button (click)="saveProject()">
-        <mat-icon></mat-icon>
-        Update
-      </button>
+        <div fxLayoutGap="20">
+          <button
+            mat-raised-button
+            (click)="saveProject()"
+            [disabled]="miFormulario.invalid"
+          >
+            <mat-icon>edit</mat-icon>
+            Save
+          </button>
+
+          <button
+            mat-raised-button
+            (click)="saveProject()"
+            [disabled]="miFormulario.invalid"
+          >
+            <mat-icon></mat-icon>
+            Update
+          </button>
+        </div>
+      </div>
     </div>
-  </div>
+  </form>
 </div>

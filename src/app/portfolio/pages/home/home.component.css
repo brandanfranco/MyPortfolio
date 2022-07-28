@@ -5,3 +5,13 @@
 .spacer {
   flex: 1 1 auto;
 }
+.socialMedia {
+  align-items: center;
+}
+
+i {
+  font-size: 25px;
+  margin: 15px;
+  align-items: center;
+  color: rgb(218, 223, 231);
+}

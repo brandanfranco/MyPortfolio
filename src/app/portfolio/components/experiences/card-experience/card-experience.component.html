@@ -20,6 +20,7 @@
       mat-raised-button
       color="warn"
       (click)="deleteExperience(experience.id)"
+      [disabled]="!active"
     >
       DELETE
     </button>

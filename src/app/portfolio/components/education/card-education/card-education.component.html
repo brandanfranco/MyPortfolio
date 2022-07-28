@@ -14,6 +14,7 @@
       mat-raised-button
       color="warn"
       (click)="deleteEducation(education.id)"
+      [disabled]="!active"
     >
       DELETE
     </button>

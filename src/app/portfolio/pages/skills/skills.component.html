@@ -8,40 +8,76 @@
   fxLayoutGap="30px"
   fxLayoutAlign="center"
 >
-  <div fxFlex="15" fxFlex.sm="25" *ngFor="let skill of skills">
+  <div
+    fxFlex="30"
+    fxFlex.sm="75"
+    fxLayoutGap="10px"
+    *ngFor="let skill of skills"
+  >
     <app-card-skill [skill]="skill"></app-card-skill>
   </div>
 </div>
 
-<div class="form" fxlayout="row" fxLayoutGap="80" fxLayoutAlign="center">
-  <div fxFlex="50" fxLayout="column" fxLayoutAlign="center">
-    <mat-form-field fxFlex="100">
-      <mat-label> Skill number to update</mat-label>
-      <input [(ngModel)]="newSkill.id" matInput type="number" />
-    </mat-form-field>
+<div *ngIf="!isAdmin" else noActive>
+  Ingrese modo administrador para mas opciones
+</div>
+<br />
+<br />
+<br />
 
-    <mat-form-field fxFlex="100">
-      <mat-label>Name</mat-label>
-      <input [(ngModel)]="newSkill.nombre" matInput type="text" required />
-    </mat-form-field>
+<div *ngIf="isAdmin">
+  <form #miFormulario="ngForm">
+    <div fxlayout="row" fxLayoutGap="80" fxLayoutAlign="center">
+      <div fxFlex="50" fxLayout="column" fxLayoutAlign="center">
+        <mat-form-field fxFlex="100">
+          <mat-label> Skill number to update (optional)</mat-label>
+          <input [(ngModel)]="newSkill.id" matInput type="number" name="id" />
+        </mat-form-field>
 
-    <mat-form-field fxFlex="100">
-      <mat-label>Image</mat-label>
-      <input [(ngModel)]="newSkill.imagen" matInput type="text" required />
-    </mat-form-field>
+        <mat-form-field fxFlex="100">
+          <mat-label>Name</mat-label>
+          <input
+            [(ngModel)]="newSkill.nombre"
+            matInput
+            type="text"
+            required
+            name="nombre"
+          />
+        </mat-form-field>
 
-    <br />
+        <mat-form-field fxFlex="100">
+          <mat-label>Image</mat-label>
+          <input
+            [(ngModel)]="newSkill.imagen"
+            matInput
+            type="text"
+            name="imagen"
+            required
+          />
+        </mat-form-field>
 
-    <div fxLayoutGap="20">
-      <button mat-raised-button (click)="saveSkill()">
-        <mat-icon>edit</mat-icon>
-        Save Skill
-      </button>
+        <br />
 
-      <button mat-raised-button (click)="saveSkill()">
-        <mat-icon></mat-icon>
-        Update Skill
-      </button>
+        <div fxLayoutGap="20">
+          <button
+            [disabled]="miFormulario.invalid"
+            mat-raised-button
+            (click)="saveSkill()"
+          >
+            <mat-icon>edit</mat-icon>
+            Save Skill
+          </button>
+
+          <button
+            [disabled]="miFormulario.invalid"
+            mat-raised-button
+            (click)="saveSkill()"
+          >
+            <mat-icon>save</mat-icon>
+            Update Skill
+          </button>
+        </div>
+      </div>
     </div>
-  </div>
+  </form>
 </div>

@@ -1,1 +1,97 @@
-<p>register works!</p>
+<mat-grid-list cols="1" *ngIf="isLoggedIn; else loggedOut">
+  <mat-grid-tile>
+    <button mat-raised-button color="black">Already logged</button>
+  </mat-grid-tile>
+</mat-grid-list>
+
+<ng-template #loggedOut>
+  <mat-grid-list cols="1" rowHeight="450px">
+    <mat-grid-tile>
+      <mat-card>
+        <mat-card-title> Register </mat-card-title>
+        <mat-card-subtitle>Start</mat-card-subtitle>
+        <mat-card-actions>
+          <a
+            mat-button
+            routerLink="/auth/register"
+            routerLinkActive="active-link"
+          >
+            Register</a
+          >
+
+          <a mat-button routerLink="/auth/login"> Login</a>
+
+          <a mat-button routerLink=""> Portada</a>
+        </mat-card-actions>
+
+        <form #FormSecurity="ngForm" (ngSubmit)="onRegister()">
+          <div
+            class="form"
+            fxlayout="row"
+            fxLayoutGap="80"
+            fxLayoutAlign="center"
+          >
+            <div>
+              <mat-form-field fxFlex="100">
+                <mat-label>NAME</mat-label>
+                <input
+                  matInput
+                  type="text"
+                  required
+                  name="USERNAME"
+                  [(ngModel)]="nombre"
+                />
+              </mat-form-field>
+
+              <mat-form-field fxFlex="100">
+                <mat-label>USERNAME</mat-label>
+                <input
+                  matInput
+                  type="text"
+                  required
+                  name="USERNAME"
+                  [(ngModel)]="nombreUsuario"
+                />
+              </mat-form-field>
+
+              <mat-form-field fxFlex="100">
+                <mat-label>EMAIL</mat-label>
+                <input
+                  matInput
+                  type="text"
+                  required
+                  name="USERNAME"
+                  [(ngModel)]="email"
+                />
+              </mat-form-field>
+
+              <mat-form-field fxFlex="100">
+                <mat-label>PASSWORD</mat-label>
+                <input
+                  [(ngModel)]="password"
+                  matInput
+                  type="password"
+                  required
+                  name="password"
+                  required
+                />
+              </mat-form-field>
+
+              <br />
+
+              <div fxLayoutGap="20">
+                <button mat-raised-button [disabled]="FormSecurity.invalid">
+                  <mat-icon>edit</mat-icon>
+                  Create New Register
+                </button>
+              </div>
+            </div>
+          </div>
+        </form>
+        <div *ngIf="FormSecurity.submitted && isRegisterFail">
+          ERROR : {{ errMsg }}
+        </div>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</ng-template>

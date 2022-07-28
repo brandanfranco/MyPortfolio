@@ -1,1 +1,70 @@
-<p>login works!</p>
+<mat-grid-list cols="1" *ngIf="isLoggedIn; else loggedOut">
+  <mat-grid-tile> Already logged </mat-grid-tile>
+</mat-grid-list>
+
+<ng-template #loggedOut>
+  <mat-grid-list cols="1" rowHeight="450px">
+    <mat-grid-tile>
+      <mat-card>
+        <mat-card-title> Login </mat-card-title>
+        <mat-card-subtitle>Start</mat-card-subtitle>
+        <mat-card-actions>
+          <a mat-button routerLink="/auth/register"> Register</a>
+
+          <a mat-button routerLink="/auth/login" routerLinkActive="active-link">
+            Login</a
+          >
+
+          <a mat-button routerLink=""> Portada</a>
+        </mat-card-actions>
+
+        <form #FormSecurity="ngForm" (ngSubmit)="onlogin()">
+          <div
+            class="form"
+            fxlayout="row"
+            fxLayoutGap="80"
+            fxLayoutAlign="center"
+          >
+            <div>
+              <mat-form-field fxFlex="100">
+                <mat-label>USERNAME</mat-label>
+                <input
+                  [(ngModel)]="nombreUsuario"
+                  matInput
+                  type="text"
+                  required
+                  name="USERNAME"
+                />
+              </mat-form-field>
+
+              <mat-form-field fxFlex="100">
+                <mat-label>PASSWORD</mat-label>
+                <input
+                  [(ngModel)]="password"
+                  matInput
+                  type="password"
+                  required
+                  name="password"
+                  required
+                />
+              </mat-form-field>
+
+              <br />
+
+              <div fxLayoutGap="20">
+                <button mat-raised-button [disabled]="FormSecurity.invalid">
+                  <mat-icon>edit</mat-icon>
+                  LOGIN
+                </button>
+              </div>
+            </div>
+          </div>
+        </form>
+        <br />
+        <div *ngIf="FormSecurity.submitted && isLoggedFail">
+          Password or UserName No valid
+        </div>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</ng-template>

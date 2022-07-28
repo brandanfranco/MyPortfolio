@@ -19,10 +19,15 @@
   </mat-card-content>
   <mat-card-actions>
     <button mat-raised-button color="warn">
-      <a href="https://{{ project.url }}" target="_blank">MORE.....</a>
+      <a href="https://{{ project.url }}" target="_blank">Visit.....</a>
     </button>
 
-    <button mat-raised-button color="warn" (click)="deleteItem(project.id)">
+    <button
+      mat-raised-button
+      color="warn"
+      (click)="deleteItem(project.id)"
+      [disabled]="!active"
+    >
       DELETE
     </button>
   </mat-card-actions>

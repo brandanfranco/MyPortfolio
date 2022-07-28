@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { ErrorComponent } from './shared/error/error.component';
+import { AuthGuard } from './auth/guards/auth.guard';
 
 const routes: Routes = [
   {
@@ -12,6 +13,8 @@ const routes: Routes = [
     path: 'portfolio',
     loadChildren: () =>
       import('./portfolio/portfolio.module').then((m) => m.PortfolioModule),
+    /*canLoad: [AuthGuard],*/
+    canActivate: [AuthGuard],
   },
   {
     path: '404',

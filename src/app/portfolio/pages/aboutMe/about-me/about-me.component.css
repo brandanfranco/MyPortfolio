@@ -10,6 +10,10 @@ mat-card {
 
 .aboutMe {
   position: absolute;
-  top: 25%;
-  color: rgb(208, 188, 188);
+  top: 10%;
+  color: rgba(194, 200, 204);
+  margin: 50px 60px;
+  font-family: verdana, arial, helvetica;
+  line-height: 38px;
+  font-size: 20px;
 }

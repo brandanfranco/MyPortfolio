@@ -8,70 +8,108 @@
   fxLayoutGap="30px"
   fxLayoutAlign="center"
 >
-  <div fxFlex="30" fxFlex.sm="85" *ngFor="let experience of experiences">
+  <div
+    fxFlex="30"
+    fxFlex.sm="75"
+    fxLayoutGap="10px"
+    *ngFor="let experience of experiences"
+  >
     <app-card-experience [experience]="experience"></app-card-experience>
   </div>
 </div>
+<div *ngIf="!isAdmin">Ingrese modo administrador para mas opciones</div>
 
-<div class="form" fxlayout="row" fxLayoutGap="80" fxLayoutAlign="center">
-  <div fxFlex="50" fxLayout="column" fxLayoutAlign="center">
-    <mat-form-field fxFlex="100">
-      <mat-label> Experience number to update</mat-label>
-      <input [(ngModel)]="newExperience.id" matInput type="number" />
-    </mat-form-field>
+<div *ngIf="isAdmin">
+  <form #miFormulario="ngForm">
+    <div class="form" fxlayout="row" fxLayoutGap="80" fxLayoutAlign="center">
+      <div fxFlex="50" fxLayout="column" fxLayoutAlign="center">
+        <mat-form-field fxFlex="100">
+          <mat-label> Experience number to update (optional)</mat-label>
+          <input
+            [(ngModel)]="newExperience.id"
+            matInput
+            type="number"
+            name="id"
+          />
+        </mat-form-field>
 
-    <mat-form-field fxFlex="100">
-      <mat-label>Company</mat-label>
-      <input
-        [(ngModel)]="newExperience.empresa"
-        matInput
-        type="text"
-        required
-      />
-    </mat-form-field>
+        <mat-form-field fxFlex="100">
+          <mat-label>Company</mat-label>
+          <input
+            [(ngModel)]="newExperience.empresa"
+            name="empresa"
+            matInput
+            type="text"
+            required
+          />
+        </mat-form-field>
 
-    <mat-form-field fxFlex="100">
-      <mat-label>Job Position</mat-label>
-      <input
-        [(ngModel)]="newExperience.posicion"
-        matInput
-        type="text"
-        required
-      />
-    </mat-form-field>
+        <mat-form-field fxFlex="100">
+          <mat-label>Job Position</mat-label>
+          <input
+            [(ngModel)]="newExperience.posicion"
+            name="posicion"
+            matInput
+            type="text"
+            required
+          />
+        </mat-form-field>
 
-    <mat-form-field fxFlex="100">
-      <mat-label>Description</mat-label>
-      <input
-        [(ngModel)]="newExperience.descripcion"
-        matInput
-        type="text"
-        required
-      />
-    </mat-form-field>
+        <mat-form-field fxFlex="100">
+          <mat-label>Description</mat-label>
+          <input
+            [(ngModel)]="newExperience.descripcion"
+            name="descripcion"
+            matInput
+            type="text"
+            required
+          />
+        </mat-form-field>
 
-    <mat-form-field fxFlex="100">
-      <mat-label>From</mat-label>
-      <input [(ngModel)]="newExperience.desde" matInput type="text" required />
-    </mat-form-field>
+        <mat-form-field fxFlex="100">
+          <mat-label>From</mat-label>
+          <input
+            [(ngModel)]="newExperience.desde"
+            name="desde"
+            matInput
+            type="text"
+            required
+          />
+        </mat-form-field>
 
-    <mat-form-field fxFlex="100">
-      <mat-label>Until</mat-label>
-      <input [(ngModel)]="newExperience.hasta" matInput type="text" required />
-    </mat-form-field>
+        <mat-form-field fxFlex="100">
+          <mat-label>Until</mat-label>
+          <input
+            [(ngModel)]="newExperience.hasta"
+            name="hasta"
+            matInput
+            type="text"
+            required
+          />
+        </mat-form-field>
 
-    <br />
+        <br />
 
-    <div fxLayoutGap="20">
-      <button mat-raised-button (click)="saveExperience()">
-        <mat-icon>edit</mat-icon>
-        Save Experience
-      </button>
+        <div fxLayoutGap="20">
+          <button
+            mat-raised-button
+            (click)="saveExperience()"
+            [disabled]="miFormulario.invalid"
+          >
+            <mat-icon>edit</mat-icon>
+            Save Experience
+          </button>
 
-      <button mat-raised-button (click)="saveExperience()">
-        <mat-icon></mat-icon>
-        Update Experience
-      </button>
+          <button
+            mat-raised-button
+            (click)="saveExperience()"
+            [disabled]="miFormulario.invalid"
+          >
+            <mat-icon></mat-icon>
+            Update Experience
+          </button>
+        </div>
+      </div>
     </div>
-  </div>
+  </form>
 </div>

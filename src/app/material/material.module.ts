@@ -10,6 +10,8 @@ import { MatCardModule } from '@angular/material/card';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatTabsModule } from '@angular/material/tabs';
 
 @NgModule({
   declarations: [],
@@ -24,6 +26,8 @@ import { MatInputModule } from '@angular/material/input';
     MatProgressBarModule,
     MatFormFieldModule,
     MatInputModule,
+    MatGridListModule,
+    MatTabsModule,
   ],
 })
 export class MaterialModule {}

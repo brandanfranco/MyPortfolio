@@ -11,17 +11,17 @@
 
     <mat-nav-list>
       <a routerLink="./projects" mat-list-item (click)="sidenav.toggle()">
-        <mat-icon mat-list-icon>label</mat-icon>
+        <mat-icon mat-list-icon>business_center</mat-icon>
         <span> Projects </span>
       </a>
 
       <a routerLink="./skills" mat-list-item (click)="sidenav.toggle()">
-        <mat-icon mat-list-icon>label</mat-icon>
+        <mat-icon mat-list-icon>stars</mat-icon>
         <span> Skills </span>
       </a>
 
       <a routerLink="./education" mat-list-item (click)="sidenav.toggle()">
-        <mat-icon mat-list-icon>label</mat-icon>
+        <mat-icon mat-list-icon>school</mat-icon>
         <span> Education </span>
       </a>
 
@@ -31,7 +31,7 @@
       </a>
 
       <a routerLink="./" mat-list-item (click)="sidenav.toggle()">
-        <mat-icon mat-list-icon>label</mat-icon>
+        <mat-icon mat-list-icon>home</mat-icon>
         <span> Home </span>
       </a>
     </mat-nav-list>
@@ -41,10 +41,23 @@
     <button mat-icon-button (click)="sidenav.toggle()">
       <mat-icon>menu</mat-icon>
     </button>
+    <span class="spacer"></span>
+    <div class="socialMedia">
+      <a href="https://www.instagram.com/francodamian555/">
+        <i class="fa-brands fa-instagram"></i
+      ></a>
+      <a href="https://www.linkedin.com/in/franco-brandan/">
+        <i class="fa-brands fa-linkedin-in"></i>
+      </a>
+      <a href="https://github.com/brandanfranco">
+        <i class="fa-brands fa-github"></i>
+      </a>
+    </div>
 
     <span class="spacer"></span>
+    <span>Welcome {{ nombreUsuario }} </span>
 
-    <button mat-button>Logout</button>
+    <button mat-button (click)="logout()">Logout</button>
   </mat-toolbar>
 
   <div class="container">
