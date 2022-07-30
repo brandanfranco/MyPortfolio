@@ -8,7 +8,7 @@ import { Login } from '../security/login';
   providedIn: 'root',
 })
 export class AuthSecurityService {
-  authURL = `https://git.heroku.com/hidden-retreat-78619.git/auth/`;
+  authURL = `https://localhost:8080/auth/`;
 
   constructor(private httpClient: HttpClient) {}
 

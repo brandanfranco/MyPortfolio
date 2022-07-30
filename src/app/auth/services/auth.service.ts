@@ -18,12 +18,10 @@ export class AuthService {
     if (!localStorage.getItem('AuthToken')) {
       return of(false);
     }
-    return this.http
-      .get('https://git.heroku.com/hidden-retreat-78619.git/api/person/all')
-      .pipe(
-        map((response) => {
-          return true;
-        })
-      );
+    return this.http.get('https://localhost:8080/api/person/all').pipe(
+      map((response) => {
+        return true;
+      })
+    );
   }
 }

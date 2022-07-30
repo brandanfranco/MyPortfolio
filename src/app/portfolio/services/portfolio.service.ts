@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class PortfolioService {
-  url: any = `https://git.heroku.com/hidden-retreat-78619.git`;
+  url: any = `https://localhost:8080`;
   constructor(private http: HttpClient) {}
 
   getInfoPersonal() {
