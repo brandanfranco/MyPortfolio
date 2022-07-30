@@ -37,11 +37,11 @@ export class PortfolioService {
   // // Experiences Services(get,put,delete,post)
 
   getInfoExperience() {
-    return this.http.get('${this.url}/api/experiencia/all');
+    return this.http.get(`${this.url}/api/experiencia/all`);
   }
 
   postExperience(newExperience: any) {
-    return this.http.post('${this.url}/api/experiencia', newExperience);
+    return this.http.post(`${this.url}/api/experiencia`, newExperience);
   }
 
   updateExperience(newExperience: any) {
