@@ -8,7 +8,7 @@ import { Login } from '../security/login';
   providedIn: 'root',
 })
 export class AuthSecurityService {
-  authURL = `https://localhost:8080/auth/`;
+  authURL = `http://localhost:8080/auth/`;
 
   constructor(private httpClient: HttpClient) {}
 

@@ -5,11 +5,11 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class PortfolioService {
-  url: any = `https://localhost:8080`;
+  url: any = `http://localhost:8080`;
   constructor(private http: HttpClient) {}
 
   getInfoPersonal() {
-    return this.http.get(`${this.url}/person/all`);
+    return this.http.get(`${this.url}/api/person/all`);
   }
 
   // Proyects Services(get,put,delete,post)
