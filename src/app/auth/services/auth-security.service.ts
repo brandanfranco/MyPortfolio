@@ -8,7 +8,7 @@ import { Login } from '../security/login';
   providedIn: 'root',
 })
 export class AuthSecurityService {
-  authURL = `http://localhost:8080/auth/`;
+  authURL = `https://portfoliofrancobrandan.herokuapp.com/auth/`;
 
   constructor(private httpClient: HttpClient) {}
 

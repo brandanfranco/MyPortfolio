@@ -18,10 +18,12 @@ export class AuthService {
     if (!localStorage.getItem('AuthToken')) {
       return of(false);
     }
-    return this.http.get('http://localhost:8080/api/person/all').pipe(
-      map((response) => {
-        return true;
-      })
-    );
+    return this.http
+      .get('https://portfoliofrancobrandan.herokuapp.com/api/person/all')
+      .pipe(
+        map((response) => {
+          return true;
+        })
+      );
   }
 }

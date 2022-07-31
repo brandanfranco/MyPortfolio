@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class PortfolioService {
-  url: any = `http://localhost:8080`;
+  url: any = `https://portfoliofrancobrandan.herokuapp.com`;
   constructor(private http: HttpClient) {}
 
   getInfoPersonal() {
