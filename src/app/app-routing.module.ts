@@ -17,12 +17,12 @@ const routes: Routes = [
     canActivate: [AuthGuard],
   },
   {
-    path: '404',
+    path: 'portada',
     component: ErrorComponent,
   },
   {
     path: '**',
-    redirectTo: '404',
+    redirectTo: 'portada',
   },
 ];
 
