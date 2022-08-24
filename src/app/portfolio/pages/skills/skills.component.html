@@ -18,12 +18,8 @@
   </div>
 </div>
 
-<div *ngIf="!isAdmin" else noActive>
-  Ingrese modo administrador para mas opciones
-</div>
-<br />
-<br />
-<br />
+<div *ngIf="!isAdmin" else noActive>Mode Admin more options availables</div>
+<hr />
 
 <div *ngIf="isAdmin">
   <form #miFormulario="ngForm">
