@@ -1,5 +1,7 @@
 <mat-grid-list cols="1" *ngIf="isLoggedIn; else loggedOut">
-  <mat-grid-tile> Already logged </mat-grid-tile>
+  <mat-grid-tile>
+    <button mat-raised-button color="black">Already logged</button>
+  </mat-grid-tile>
 </mat-grid-list>
 
 <ng-template #loggedOut>
